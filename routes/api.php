@@ -3,6 +3,7 @@
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,33 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/posts', function(){
-    return Post::all();
-});
-
-Route::post('posts', function(){
-    return Post::create([
-        'title' => request('title'),
-        'body' => request('body'),
-        'user_id' => request('user_id'),
-        'cover_image' => request('cover_image'),
-        'category' => request('category'),
-    ]);
-});
-
-Route::put('/posts/{post}', function(Post $post){
-
-    $post->update([
-        'title' => request('title'),
-        'body' => request('body'),
-        'user_id' => request('user_id'),
-        'cover_image' => request('cover_image'),
-        'category' => request('category'),
-    ]);
-});
-
-Route::delete('/posts/{post}', function(Post $post){
-    
-    $post->delete();
-    
-});
+Route::get('users',[PostsApiController::class,'users']);
+Route::get('/posts',[PostsApiController::class,'index']);
+Route::post('/posts',[PostsApiController::class,'store']);
+Route::put('/posts/{post}',[PostsApiController::class,'update']);
+Route::get('/posts/{post}',[PostsApiController::class,'show']);
+Route::delete('/posts/{post}',[PostsApiController::class,'destroy']);
