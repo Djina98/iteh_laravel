@@ -24,7 +24,9 @@ class PostsApiController extends Controller
         return Post::create([
           'title'=>  request('title'),
           'body'=>request('body'),
-          'category'=>request('rate'),
+          'user_id'=>request('user_id'),
+          'cover_image'=>request('cover_image'),
+          'category'=>request('category'),
     
         ]);
     }
@@ -40,6 +42,7 @@ class PostsApiController extends Controller
         'title'=>  request('title'),
         'body'=>request('body'),
         'category'=>request('category'),
+        'cover_image'=>request('cover_image')
 
     ]);
  }
