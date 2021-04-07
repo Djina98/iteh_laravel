@@ -24,11 +24,6 @@
               </li>
               <li class="nav-item">
                 <strong>
-                    <a class="nav-link" href="/services" style="color:rgb(16, 128, 202)">Services</a>
-                </strong>
-              </li>
-              <li class="nav-item">
-                <strong>
                     <a class="nav-link" href="/posts" style="color:rgb(16, 128, 202)">Blog</a>
                 </strong>
               </li>
